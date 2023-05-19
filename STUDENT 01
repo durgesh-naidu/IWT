@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>student registration</title>
+<script>
+function count()
+{
+var n = document.getElementById("1").length;
+alert("Number "+n);
+}
+</script>
+</head>
+
+<body>
+<form id="1">
+
+<label for="fname">name:</labe><br>
+<input type="text"name="name:"/><br>
+<label for="fname">phone no:</labe><br>
+<input type="text" name="phone no:"/><br>
+<label for="fname">DOB:</labe><br>
+<input type="Date" name="DOB:"/><br>
+Gender
+<input type="radio"name="gender"value="m">male<br>
+<input type="radio"name="gender"value="f">female<br>
+<input type="radio"name="gender"value="s">other<br>
+course<select><br>
+<option>B com</option><br>
+<option>BCA</option><br>
+<option>BSC</option><br>
+</select>
+
+<br>language<br>
+<input type="checkbox" name="lan"value="kan">kannada<br>
+<input type="checkbox" name="lan"value="tel">telugu<br>
+<input type="checkbox" name="lan"value="hin">hindi<br>
+<input type="checkbox" name="lan"value="eng">english<br>
+address<textarea rows=5 col=100></textarea><br>
+upload pic<input type="file"><br>
+password<input type="password"name=pwd"><br>
+<input type="submit" onclick="count()"><br>
+<input type="reset"><br>
+</form>
+</body>
+</html>
