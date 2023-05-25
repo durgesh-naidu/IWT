@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Information Form</title>
+</head>
+<body>
+  <h1>Employee Information Form</h1>
+  <form id="employee-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="designation">Designation:</label>
+    <input type="text" id="designation" name="designation"><br>
+
+    <label for="basic-pay">Basic Pay:</label>
+    <input type="number" id="basic-pay" name="basic-pay"><br>
+
+    <button type="submit">Calculate</button>
+  </form>
+
+  <h2>Calculated Values:</h2>
+  <p>DA: <span id="da"></span></p>
+  <p>HRA: <span id="hra"></span></p>
+  <p>PF: <span id="pf"></span></p>
+  <p>Tax: <span id="tax"></span></p>
+  <p>Gross Pay: <span id="gross-pay"></span></p>
+  <p>Deduction: <span id="deduction"></span></p>
+  <p>Net Pay: <span id="net-pay"></span></p>
+
+  <script>
+    const form = document.getElementById('employee-form');
+    form.addEventListener('submit', calculateValues);
+
+    function calculateValues(event) {
+      event.preventDefault();
+
+      const basicPay = Number(document.getElementById('basic-pay').value);
+      const da = basicPay * 0.1;
+      const hra = basicPay * 0.2;
+      const pf = basicPay * 0.12;
+      const grossPay = basicPay + da + hra;
+      const tax = grossPay * 0.1;
+      const deduction = pf + tax;
+      const netPay = grossPay - deduction;
+
+      document.getElementById('da').textContent = da.toFixed(2);
+      document.getElementById('hra').textContent = hra.toFixed(2);
+      document.getElementById('pf').textContent = pf.toFixed(2);
+      document.getElementById('tax').textContent = tax.toFixed(2);
+      document.getElementById('gross-pay').textContent = grossPay.toFixed(2);
+      document.getElementById('deduction').textContent = deduction.toFixed(2);
+      document.getElementById('net-pay').textContent = netPay.toFixed(2);
+    }
+  </script>
+</body>
+</html>
